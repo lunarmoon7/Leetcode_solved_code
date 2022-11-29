@@ -4,12 +4,12 @@ class Solution(object):
         :type num: int
         :rtype: int
         """
-        l = list(str(num))
-        
-        for i in range(len(l)):
-            if l[i] == "6":
-                l[i] = "9"
+        s = str(num)
+        n = len(s)
+        for i in range(n):
+            if s[i] == "6":
+                s = s[:i] + "9" + s[i+1:]
                 break
-        return ''.join(l)
+        return s
         
             
