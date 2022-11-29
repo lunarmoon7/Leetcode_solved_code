@@ -11,7 +11,7 @@ class Solution(object):
         nums2.sort()
         
         for i in range(n):
-            sums += nums1[i] * nums2[~i]
+            sums += nums1[i] * nums2[n - i - 1]
         return sums
         
         
