@@ -5,12 +5,13 @@ class Solution(object):
         :type nums2: List[int]
         :rtype: int
         """
+        # Maximize product Sum => sort() + sort(reverse=True)
         sums, n = 0, len(nums1)
         nums1.sort()
         nums2.sort(reverse=True)
         
-        for num1, num2 in zip(nums1, nums2):
-            sums += num1 * num2
+        for i in range(n):
+            sums += nums1[i] * nums2[i]
         return sums
         
         
