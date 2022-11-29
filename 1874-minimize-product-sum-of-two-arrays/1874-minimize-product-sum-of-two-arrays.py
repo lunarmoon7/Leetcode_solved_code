@@ -8,10 +8,10 @@ class Solution(object):
         # Maximize product Sum => sort() + sort(reverse=True)
         sums, n = 0, len(nums1)
         nums1.sort()
-        nums2.sort(reverse=True)
+        nums2.sort()
         
         for i in range(n):
-            sums += nums1[i] * nums2[i]
+            sums += nums1[i] * nums2[n - i - 1]
         return sums
         
         
