@@ -9,7 +9,9 @@ class Solution(object):
         sums, n = 0, len(nums1)
         nums1.sort()
         nums2.sort()
-        
+        print(~1)
+        print(~2)
+        print(~3)
         for i in range(n):
             sums += nums1[i] * nums2[n - i - 1]
         return sums
