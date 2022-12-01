@@ -2,13 +2,12 @@ class Solution:
     def minOperations(self, nums: List[int]) -> int:
         cnt = 0
         n = len(nums)
-        prev = 0
-        for i in range(n):
+        
+        for i in range(1, n):
+            prev = nums[i]
+            nums[i] = max(nums[i - 1] + 1, nums[i])
             if prev < nums[i]:
-                prev = nums[i]
-            else:
-                cnt += prev - nums[i] + 1
-                prev = prev + 1
+                cnt += nums[i] - prev
         return cnt
         
                 
