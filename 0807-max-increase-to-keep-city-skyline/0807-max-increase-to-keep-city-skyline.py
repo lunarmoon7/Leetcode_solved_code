@@ -1,8 +1,10 @@
 class Solution(object):
     def maxIncreaseKeepingSkyline(self, grid):
-        row_maxes = [max(row) for row in grid]
-        col_maxes = [max(col) for col in zip(*grid)]
-
-        return sum(min(row_maxes[r], col_maxes[c]) - val
-                   for r, row in enumerate(grid)
-                   for c, val in enumerate(row))
+        n = len(grid)
+        row_max = [max(row) for row in grid]
+        col_max = [max(row[i] for row in grid) for i in range(n)]
+        ans = 0
+        for i in range(n):
+            for j in range(n):
+                ans += min(row_max[i], col_max[j]) - grid[i][j]
+        return ans
