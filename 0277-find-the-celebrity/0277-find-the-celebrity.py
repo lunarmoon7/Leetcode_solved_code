@@ -4,14 +4,28 @@
 
 class Solution:
     def findCelebrity(self, n: int) -> int:
-        candidate = 0
+        celeb = 0
+        
         for i in range(1, n):
-            if knows(i, candidate) and not knows(candidate, i):
+            if knows(i, celeb) and not knows(celeb, i):
                 continue
             else:
-                candidate = i
-        for j in range(candidate):
-            if not knows(j, candidate) or knows(candidate, j):
+                celeb = i
+        for j in range(celeb):
+            if not knows(j, celeb) or knows(celeb, j):
                 return -1
-        return candidate
+        return celeb
+                        
+                    
+            
+#             candidate = 0
+#         for i in range(1, n):
+#             if knows(i, candidate) and not knows(candidate, i):
+#                 continue
+#             else:
+#                 candidate = i
+#         for j in range(candidate):
+#             if not knows(j, candidate) or knows(candidate, j):
+#                 return -1
+#         return candidate
                     
