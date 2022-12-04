@@ -6,8 +6,9 @@ class Solution:
             op = True
             s = s.replace("-", "")
         s = ''.join(reversed(s))
-        if op:
-            s = "-" + s
         x = int(s)
+        if op:
+            x = -x
+        
         return x if -2**31 < x < 2**31 - 1  else 0
         
