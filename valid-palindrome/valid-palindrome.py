@@ -1,5 +1,4 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        s = re.sub("[^a-zA-Z0-9]", "", s).lower()
-        
-        return True if s == ''.join(reversed(s)) else False
+        lists = [ch for ch in s.lower() if ch.isalnum() ]
+        return lists == lists[::-1]
