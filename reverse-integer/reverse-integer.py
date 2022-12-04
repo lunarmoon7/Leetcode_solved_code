@@ -2,11 +2,13 @@ class Solution:
     def reverse(self, x: int) -> int:
         s = str(x)
         op = False
-        if s[0] == "-":
-            op = True
-            s = s.replace("-", "")
-        s = ''.join(reversed(s))
+        
+        if x < 0: op = True
+            
+        # s = s.replace("-", "")
+        s = ''.join(reversed(s.replace("-", "")))
         x = int(s)
+        
         if op:
             x = -x
         
