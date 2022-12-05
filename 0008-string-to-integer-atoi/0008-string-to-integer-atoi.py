@@ -1,30 +1,21 @@
 class Solution:
     def myAtoi(self, s: str) -> int:
         s = s.lstrip()
-        if len(s) < 1: 
-            return 0
+        MIN, MAX = -2 ** 31, 2 ** 31 - 1
+        n, empty, sign = 0, True, 1
         
-        mins, maxs = -2**31, 2**31 - 1
-        num = 0
-        negative = False
-        pos = 0
+        for ch in s:
+            if empty:
+                if ch == ' ': continue
+                elif ch == '-': sign = -1
+                elif ch.isdigit(): n = int(ch)
+                elif ch != '+': return 0
+                empty = False
+            else:
+                if ch.isdigit():
+                    n = n * 10 + int(ch)
+                else: break
+        if sign * n > MAX: return MAX
+        elif sign * n < MIN: return MIN
+        return sign * n
         
-        if s[pos] == '-':
-            negative = True
-            pos += 1
-        elif s[pos] == '+':
-            pos += 1
-            
-        while pos < len(s):
-            if not s[pos].isdigit():
-                break
-            
-            num = num * 10 + int(s[pos])
-            pos += 1
-            
-        num = -num if negative else num
-        if num < mins:
-            num = mins
-        elif num > maxs:
-            num = maxs
-        return num
