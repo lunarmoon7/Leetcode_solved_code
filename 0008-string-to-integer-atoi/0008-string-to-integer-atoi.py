@@ -1,6 +1,6 @@
 class Solution:
     def myAtoi(self, s: str) -> int:
-        s = s.strip()
+        s = s.lstrip()
         if len(s) < 1: 
             return 0
         
